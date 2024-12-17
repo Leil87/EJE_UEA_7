@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISCRIMINACIÓN</title>
+    <link rel="stylesheet" href="pageje.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+      #map {
+        height: 400px;
+        margin-top: 20px;
+      }
+      /* Ocultar la atribución de Leaflet */
+  .leaflet-control-attribution {
+      display: none;
+  }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #211986;
+        color: rgb(8, 8, 8);
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #a7b3c0;
+      }
+    </style> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#INICIO">INICIO</a></li>
+            <li><a href="#FORMULARIO">FORMULARIO</a></li> 
+            <li><a href="#MAPA">MAPA</a></li> 
+            <li><a href="#CONTACTO">CONTACTO</a></li>  
+        </ul>
+    </nav>
+
+    <section id="INICIO">
+        <h1 class="heading">DISCRIMINACIÓN</h1>
+        <br><br>
+        <p>SOMOS IGUALES</p>
+    </section>
+
+    <section id="FORMULARIO">
+            <div class=" flex items-center justify-between pl-6 pr-6 h-screen">
+            <div class="flex items-center space-x-6">
+                <img src="s.jpg" alt="Sticker" class="w-1/3 h-auto rounded-lg">
+
+                <div class="max-w-sm bg-gray-100 p-4 rounded-lg shadow-lg">
+                    <h1 class="text-2xl font-bold text-red-800">¿Quieres agregar un punto al mapa?</h1>
+                    <p class="mt-2 text-base text-black-600">Contesta el formulario</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScOfhUEA_lVy81vHrEUg9hx_91vigg1di8wDTJpTcdnUBsYPw/viewform">
+                        <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-300">
+                            Ir al Formulario
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section id="MAPA">
+        <h1 class="heading">MAPA</h1>
+        <form id="data-form">
+          <label for="title">Título:</label>
+          <input type="text" id="title" name="title" required />
+      
+          <label for="description">Descripción:</label>
+          <textarea id="description" name="description" rows="4" required></textarea>
+      
+          <div id="map"></div>
+      
+          <button type="button" id="save-button">Guardar Datos</button>
+        </form>
+      
+        <!-- Scripts necesarios -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script>
+          // Variables para almacenar los datos
+          let title = "";
+          let description = "";
+          let latitude = null;
+          let longitude = null;
+          const dataDict = {};
+      
+          // Inicializar el mapa
+          const map = L.map('map').setView([19.290770,-99.498475],16); // Mapa centrado en la UAM LERMA
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(map);
+      
+          // Agregar marcador al mapa
+          let marker;
+          map.on('click', function (e) {
+            latitude = e.latlng.lat;
+            longitude = e.latlng.lng;
+      
+            if (marker) {
+              map.removeLayer(marker);
+            }
+            marker = L.marker([latitude, longitude]).addTo(map)
+              .bindPopup(`Lat: ${latitude.toFixed(6)}, Lng: ${longitude.toFixed(6)}`)
+              .openPopup();
+          });
+      
+          // Guardar datos en variables y diccionario
+          document.getElementById('save-button').addEventListener('click', () => {
+            title = document.getElementById('title').value;
+            description = document.getElementById('description').value;
+      
+            if (!latitude || !longitude) {
+              alert("Por favor, selecciona un punto en el mapa.");
+              return;
+            }
+      
+            // Agregar datos al diccionario
+            const newEntry = {
+              title: title,
+              description: description,
+              latitude: latitude,
+              longitude: longitude,
+            };
+            console.log("Datos guardados:", newEntry);
+            alert("Datos guardados exitosamente.");
+          });
+        </script>  
+    </section>
+
+    <section id="CONTACTO">
+        <h1 class="heading">CONTACTANOS</h1>
+        <br><br>
+        <p>222307316@correo.ler.uam.mx</p>        
+    </section>
+</body>
+</html>
