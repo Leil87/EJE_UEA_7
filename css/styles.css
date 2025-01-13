@@ -1,0 +1,226 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+html{
+    scroll-behavior: smooth;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    
+}
+.navbar::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(3, 22, 77, 0.5);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+}
+.navbar ul li{
+    font-size: 1.1rem;
+}
+.navbar ul li a{
+    padding: 5px 20px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.navbar ul li a:hover{
+    border-bottom: 2px solid  rgb(255, 255, 255);
+}
+
+/* seccion INICIO*/
+#INICIO{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(4, 7, 37, 0.5);
+    color: white; 
+
+}
+
+#INICIO::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../IMG/INICIO.jpg') no-repeat center center;
+    background-size: cover; /* Asegura que la imagen cubra toda el área */
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+#INICIO {
+    text-align: center; /* Centra todo el texto dentro de la sección */
+}
+
+.centered {
+    display: inline-block; /* Hace que el párrafo se ajuste al tamaño del contenido */
+    margin: 0 auto; /* Centra el párrafo horizontalmente */
+    max-width: 80%; /* Opcional: límite máximo de ancho del párrafo */
+    text-align: center; /* Asegura que el texto dentro del párrafo esté centrado */
+}
+
+.heading{
+    color: white;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    transform: scale(1,1.3);
+}
+
+/* sección FORM */
+#FORMULARIO{
+background-color: rgba(73, 74, 90, 0.5);}
+
+/*seccion Trabajo*/
+#MAPA{
+    background-color: #2d389b9f;
+}
+#MAPA h1{
+    margin:100px;
+}
+
+
+
+/* seccion CONTACTO */
+#CONTACTO{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(18, 10, 88, 0.5);
+    color: white; 
+
+}
+.heading{
+    color: white;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    transform: scale(1,1.3);
+}
+
+#TALLER{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(4, 7, 37, 0.5);
+    color: white; 
+}
+.gallery {
+    display:flex;
+    gap: 5px;
+    justify-content:space-around;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.gallery img {
+    width: 300px;
+    height: 200px;
+    padding: 3px;
+    margin: 3px;
+}
+.gallery1 {
+    display:flex;
+    gap: 5px;
+    justify-content:space-around;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.gallery1 img {
+    width: 300px;
+    height: 200px;
+    padding: 3px;
+    margin: 3px;
+}
+.gallery2 {
+    display:flex;
+    gap: 5px;
+    justify-content:space-around;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#TESTIMONIOS{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(57, 61, 109, 0.5);
+    color: white; 
+}
+.gallery2 img {
+    width: 300px;
+    height: 200px;
+    padding: 3px;
+    margin: 3px;
+}
+.gallery3 {
+    display:flex;
+    gap: 5px;
+    justify-content:space-around;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.gallery3 img {
+    width: 300px;
+    height: 200px;
+    padding: 3px;
+    margin: 3px;
+}
+
+#mapa {
+    height: 400px;
+    margin-top: 20px;
+  }
+  /* Ocultar la atribución de Leaflet */
+.leaflet-control-attribution {
+  display: none;
+}
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #211986;
+    color: rgb(8, 8, 8);
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #a7b3c0;
+  }
